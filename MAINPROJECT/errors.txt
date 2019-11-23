@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 13: expected statement.
-    pilit.Sepia()
-                 ^
+File "game/script.rpy", line 27: expected statement.
+    mainname = "sasha"
+             ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu Nov 07 18:30:59 2019
+Sat Nov 23 15:40:44 2019
