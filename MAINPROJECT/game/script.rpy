@@ -1,5 +1,5 @@
 ﻿define p = Character('???', color="#c8ffc8")
-define e = Character('Денчик артур', color="#c8ffc8")
+define e = Character('Артур Денчик', color="#c8ffc8")
 define main = Character("[mainname")
 define pol = 0
 image hall_1:
@@ -49,7 +49,7 @@ label start:
         "Она.":
             $pol = pol
 
-    p "Привет! Рада видеть тебя в нашем университете! Сегодня я буду твоим экскурсоводом. Меня зовут Денчик Артур! А тебя, значит..?"
+    p "Привет! Рада видеть тебя в нашем университете! Сегодня я буду твоим экскурсоводом. Меня зовут Артур Денчик! А тебя, значит..?"
 
     python:
         mainname = renpy.input("Введите имя") 
