@@ -1,28 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 13, in script
-    image pilit float = im.Sepia("pilit novell.jpg", 1.5)
-  File "game/script.rpy", line 13, in <module>
-    image pilit float = im.Sepia("pilit novell.jpg", 1.5)
-TypeError: 'float' object has no attribute '__getitem__'
+  File "game/script.rpy", line 18, in script
+    python:
+  File "game/script.rpy", line 24, in <module>
+    jump .sasha
+NameError: name 'jump' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 13, in script
-    image pilit float = im.Sepia("pilit novell.jpg", 1.5)
-  File "D:\hgentai\repny\renpy-7.3.5-sdk\renpy\ast.py", line 1013, in execute
-    img = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "D:\hgentai\repny\renpy-7.3.5-sdk\renpy\python.py", line 2052, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 13, in <module>
-    image pilit float = im.Sepia("pilit novell.jpg", 1.5)
-  File "D:\hgentai\repny\renpy-7.3.5-sdk\renpy\display\im.py", line 1591, in Sepia
-    return MatrixColor(im, matrix.saturation(0.0, desat) * matrix.tint(tint[0], tint[1], tint[2]), **properties)
-TypeError: 'float' object has no attribute '__getitem__'
+  File "game/script.rpy", line 18, in script
+    python:
+  File "D:\renpy\renpy-7.3.5-sdk\renpy\ast.py", line 914, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\renpy\renpy-7.3.5-sdk\renpy\python.py", line 2028, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/script.rpy", line 24, in <module>
+    jump .sasha
+NameError: name 'jump' is not defined
 
-Windows-7-6.1.7601-SP1
+Windows-8-6.2.9200
 Ren'Py 7.3.5.606
-project 1.0
-Thu Nov 07 18:35:00 2019
+KemSU 1.0
+Sat Nov 23 15:39:23 2019
