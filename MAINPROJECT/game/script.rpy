@@ -1,6 +1,6 @@
 ﻿define p = Character('???', color="#c8ffc8")
 define e = Character('вставить', color="#c8ffc8")
-define main = Character("[mainname")
+define main = Character("[mainname]")
 define pol = 0
 image hall_1:
         "background hall_1.jpg"
@@ -10,6 +10,11 @@ image zoo:
         "background zoo.jpg"
 image fish:
         "background fish.jpg"
+image food1:
+        "background food1.jpg"
+image corridor1:
+        "background corridor1.jpg"
+
         
 '''screen binoculars:
     modal True
@@ -111,18 +116,55 @@ label start:
         e "Тебе нравится?"
         
         "Да":
-            "Ну.."
+            main "Ну.."
             hide zoo
             show fish
             with dissolve
             e "ДА КОНЕЧНО НРАВИТСЯ! Ты посмотри, какие они все милые uwu"
         "Нет":
-            "Ну.."
+            main "Ну.."
             hide zoo
             show fish
             with dissolve
             e "ДА КОНЕЧНО НРАВИТСЯ! Ты посмотри, какие они все милые uwu"
     e "Пойдём дальше!"
+    
+    hide zoo
+    
+    scene corridor1
+    play sound "audio/walking in a building.mp3"
+    show corridor1
+    with Fade(1.0, 0.5, 1.0)
+    
+    if not pol:
+        e "Ты, случайно, не голодна?"
+    else:
+        e "Ты, случайно, не голоден?"
+    
+    menu:
+        "Да, я бы не отказалась перекусить." if not pol:
+            main "Совсем немного..."
+            e "Замечательно, я как раз хотела показать тебе столовую! Иди за мной."
+        "Я думаю, нет.":
+            main "Нет..."
+            #play sound tummy
+            "..."
+            e "Хи-хи. Следуй за мной."
+        "Да, я бы не отказался перекусить." if pol:
+            main "Совсем немного..."
+            e "Замечательно, я как раз хотела показать тебе столовую! Иди за мной."
+    
+    hide corridor1
+    
+    show food1
+    with Fade(1.0, 0.0, 1.0)
+    
+    e "Устройся поудобнее, [mainname], а я пока схожу и возьму тебе что-нибудь перекусить uwu"
+    
+    "[e] ушла, а я решаю осмотреться."
+    "Отведя взгляд в сторону, я решаю прислушаться к разговору за соседним столиком..."
+    
+    p "..."
     
     
 
