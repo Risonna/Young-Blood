@@ -14,6 +14,12 @@ image food1:
         "background food1.jpg"
 image corridor1:
         "background corridor1.jpg"
+image map:
+        "interactive map.jpg"
+image korpus2_1:
+        "background korpus2_1.jpg"
+image korpus2_2:
+        "background korpus2_2.jpg"
 
         
 '''screen binoculars:
@@ -31,6 +37,19 @@ image corridor1:
 '''screen back_view:
     add "bg" zoom 2.0 xalign bg_xalign yalign bg_yalign'''
     
+screen example_imagebutton:
+    imagebutton xalign 0.463 yalign 0.235:
+        #эта картинка используется когда кнопка не в фокусе
+        idle ("images/interactive korpus2.png")
+        #эта картинка используется когда кнопка в фокусе
+        hover ("images/interactive korpus2_aimed.png")
+        #это действие произойдет если на кнопку навести курсор
+        #hovered ShowMenu('images/interactive korpus2_aimed.png')
+        #это действие произойдет если на кнопку навести курсор, а потом убрать
+        #unhovered ShowMenu('images/interactive korpus2_aimed.png')
+        #и собственно действие которое будет происходить при нажатии
+        action Jump("korpus2_1")
+        
 label splashscreen:
     $ renpy.pause(0)
     scene black
@@ -165,6 +184,26 @@ label start:
     "Отведя взгляд в сторону, я решаю прислушаться к разговору за соседним столиком..."
     
     p "..."
+    
+    hide food1
+    
+    show map
+    with fade
+    
+    show screen example_imagebutton
+    
+    window hide
+    pause
+    
+    return
+    
+label korpus2_1:
+    hide screen example_imagebutton
+    
+    show korpus2_1
+    with fade
+    
+    "Здесь должны быть какие-то деййствия"
     
     
 
