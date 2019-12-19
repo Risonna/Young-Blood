@@ -20,6 +20,8 @@ image korpus2_1:
         "background korpus2_1.jpg"
 image korpus2_2:
         "background korpus2_2.jpg"
+image korpus5_1:
+        "background korpus5_1.jpg"
 
         
 '''screen binoculars:
@@ -37,7 +39,7 @@ image korpus2_2:
 '''screen back_view:
     add "bg" zoom 2.0 xalign bg_xalign yalign bg_yalign'''
     
-screen example_imagebutton:
+screen korpus2:
     imagebutton xalign 0.463 yalign 0.235:
         #эта картинка используется когда кнопка не в фокусе
         idle ("images/interactive korpus2.png")
@@ -49,6 +51,12 @@ screen example_imagebutton:
         #unhovered ShowMenu('images/interactive korpus2_aimed.png')
         #и собственно действие которое будет происходить при нажатии
         action Jump("korpus2_1")
+        
+screen korpus5:
+    imagebutton xalign 0.571 yalign 0.5855:
+        idle ("images/interactive korpus5.png")
+        hover ("images/interactive korpus5_aimed.png")
+        action Jump("korpus5")
         
 label splashscreen:
     $ renpy.pause(0)
@@ -190,15 +198,30 @@ label start:
     show map
     with fade
     
-    show screen example_imagebutton
-    
+    show screen korpus2
+    show screen korpus5  
     window hide
     pause
     
     return
+
+label korpus5:
+    hide screen korpus5
+    hide screen korpus2
+    show korpus5_1
+    with fade
     
+    "У вас нет happiness"
+    
+    return
+
+label korpus3:
+    "death end"
+    return
+
 label korpus2_1:
-    hide screen example_imagebutton
+    hide screen korpus5
+    hide screen korpus2
     
     show korpus2_1
     with fade
